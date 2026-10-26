@@ -1,0 +1,89 @@
+/* An independent botanical frontispiece, separate from the laboratory scene. */
+.shell.cover-shell{max-width:none;padding:0;}
+.cover-stage{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;min-height:max(760px,100svh);padding:0 34px;color:#384a3b;background:#f7f3e7 url('assets/cover-botanical.png') center/cover no-repeat;}
+.cover-stage:before{content:"";position:absolute;inset:23px;border:1px solid #77856b42;pointer-events:none;z-index:-1;}
+.cover-stage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fbf8ed1c,#fbf8ed70 24%,#fbf8ed70 76%,#fbf8ed1c);z-index:-1;pointer-events:none;}
+.cover-masthead{width:100%;display:flex;justify-content:space-between;align-items:center;padding:43px 26px 0;font-size:11px;letter-spacing:2px;color:#67735d;}
+.cover-brand{display:flex;gap:11px;align-items:center;font-family:var(--serif);font-size:16px;letter-spacing:2px;}
+.cover-brand svg{width:23px;height:30px;}
+.cover-story{width:min(100%,820px);margin:45px auto 22px;text-align:center;}
+.cover-pretitle{display:flex;align-items:center;justify-content:center;gap:14px;font-size:11px;letter-spacing:4px;color:#879078;}
+.cover-pretitle span{height:1px;width:33px;background:#9ca48a88;}
+.cover-stage h1{font-size:clamp(46px,5.2vw,72px);letter-spacing:.2em;text-indent:.2em;line-height:1.35;font-weight:500;color:#34523f;margin:14px 0 0;font-family:var(--serif);}
+.cover-subtitle{font-family:var(--serif);font-size:21px;letter-spacing:5px;color:#69745c;margin:11px 0 0;}
+.cover-flourish{position:relative;width:130px;margin:23px auto 25px;display:flex;align-items:center;justify-content:center;color:#9aa586;}
+.cover-flourish:before,.cover-flourish:after{content:"";height:1px;width:40px;background:#a8b09277;}
+.cover-flourish svg{height:31px;width:26px;margin:0 12px;transform:rotate(-14deg);}
+.cover-reading{display:grid;grid-template-columns:1fr 1fr;gap:46px;text-align:left;padding:0 22px;}
+.cover-reading>div+div{position:relative;}
+.cover-reading>div+div:before{content:"";position:absolute;left:-23px;top:4px;bottom:3px;border-left:1px solid #abb49c55;}
+.cover-reading h2{font-family:var(--serif);font-size:16px;font-weight:500;color:#67795d;letter-spacing:2px;margin-bottom:12px;}
+.cover-reading p{font-size:14px;line-height:2.15;color:#596250;text-align:justify;}
+.cover-reading sup{color:#9a8869;font-size:9px;margin-left:3px;}
+.cover-references{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:22px;font-size:10px;color:#949782;}
+.cover-references a{color:#858d77;text-underline-offset:4px;text-decoration-color:#b9bea8;}
+.cover-cta{margin-top:auto;display:flex;align-items:center;flex-direction:column;padding:32px 0 64px;position:relative;z-index:1;}
+.cover-start{min-width:204px;min-height:54px;padding:14px 30px;background:#405e49;color:#fffcf1;border:1px solid #38533f;border-radius:5px 9px 5px 8px;box-shadow:3px 4px 0 #c8cdb6;display:flex;align-items:center;justify-content:center;gap:30px;font-family:var(--serif);font-size:17px;letter-spacing:3px;transition:transform .2s,background .2s;}
+.cover-start:hover{transform:translateY(-2px);background:#324e3b;}
+.cover-start span{font-family:Georgia,serif;font-size:21px;letter-spacing:0;}
+.cover-cta p{font-size:10px;letter-spacing:2px;color:#8a927c;margin-top:13px;}
+.cover-colophon{position:absolute;left:58px;right:58px;bottom:37px;display:flex;justify-content:space-between;gap:20px;font-size:9px;letter-spacing:1.5px;color:#89927b;}
+.quest-hero .mission-note{top:37px;right:40px;width:245px;transform:rotate(2deg);padding:25px 22px;}
+.quest-hero .mission-note h3{font-size:20px;}
+.quest-hero .mission-note .eyebrow{letter-spacing:2px;}
+@media(min-width:1600px){.cover-story{margin-top:65px;}.cover-reading p{font-size:15px;}.cover-cta{padding-bottom:85px;}}
+@media(max-width:1100px) and (min-width:761px){.quest-hero .hero-content{max-width:calc(100% - 245px);padding-left:25px;}.quest-hero h1{font-size:38px;letter-spacing:3px;}.quest-hero .mission-note{width:214px;right:22px;padding:21px 18px;}.quest-hero .mission-note h3{font-size:18px;}}
+@media(max-width:760px){.cover-stage{padding:0 26px;min-height:max(840px,100svh);background-position:center;}.cover-stage:before{inset:12px;}.cover-masthead{padding:27px 0 0;gap:10px;font-size:8px;letter-spacing:0;}.cover-brand{gap:6px;font-size:12px;letter-spacing:1px;}.cover-brand svg{width:18px;height:23px;}.cover-story{margin:35px auto 18px;}.cover-pretitle{font-size:9px;letter-spacing:3px;gap:10px;}.cover-pretitle span{width:20px;}.cover-stage h1{font-size:43px;letter-spacing:.13em;text-indent:.13em;margin-top:14px;}.cover-subtitle{font-size:16px;letter-spacing:2px;margin-top:9px;}.cover-flourish{margin:16px auto 21px;}.cover-flourish svg{height:26px;width:23px;}.cover-reading{grid-template-columns:1fr;gap:20px;padding:0 4px;}.cover-reading>div+div:before{display:none;}.cover-reading h2{font-size:14px;margin-bottom:7px;letter-spacing:2px;}.cover-reading p{font-size:12px;line-height:2.05;}.cover-references{font-size:9px;gap:8px;margin-top:17px;}.cover-cta{padding:24px 0 73px;}.cover-start{min-width:190px;min-height:51px;font-size:16px;}.cover-cta p{font-size:9px;letter-spacing:1px;margin-top:12px;}.cover-colophon{left:28px;right:28px;bottom:31px;font-size:8px;letter-spacing:0;}.cover-colophon span:last-child{font-size:6px;letter-spacing:.6px;}.quest-hero{min-height:740px;}.quest-hero .mission-note{display:block;top:248px;left:29px;right:auto;width:calc(100% - 65px);max-width:330px;padding:20px 21px;transform:rotate(1.5deg);}.quest-hero .mission-note h3{font-size:19px;}.quest-hero .mission-note li{font-size:12px;padding:7px 0;}.quest-hero .hero-content{padding-bottom:420px;}.quest-hero>.dialogue{bottom:18px;}.quest-hero .mission-note .small{font-size:10px;}}
+@media(max-width:360px){.cover-stage{padding-left:22px;padding-right:22px;min-height:890px;}.cover-stage h1{font-size:39px;}.cover-brand{font-size:11px;}.cover-masthead>span:last-child{font-size:7px;}.quest-hero h1{font-size:32px;letter-spacing:3px;}}
+@media(prefers-reduced-motion:reduce){.cover-start{transition:none;}}
+
+/* Official identity artwork is used without redrawing, tinting or stretching. */
+.cover-institutions{display:flex;align-items:center;justify-content:center;gap:24px;margin:25px auto 0;padding:0 14px;flex-shrink:0;max-width:100%;}
+.cover-institutions img{display:block;object-fit:contain;height:auto;flex-shrink:1;max-width:100%;}
+.cover-institutions .fudan-official-mark{width:190px;}
+.cover-institutions .shmc-official-mark{width:270px;}
+.institution-divider{height:38px;border-left:1px solid #87917955;flex-shrink:0;}
+.cover-story{margin-top:25px;}
+.cover-cta{padding-bottom:17px;}
+.cover-disclaimer{width:min(100%,900px);padding:0 18px 18px;text-align:center;flex-shrink:0;color:#727b65;}
+.cover-disclaimer p{font-size:10.5px;line-height:1.85;letter-spacing:.2px;}
+.cover-disclaimer strong{font-weight:500;color:#596950;margin-right:9px;}
+.cover-colophon{position:static;width:100%;padding:0 24px 31px;flex-shrink:0;}
+@media(min-width:1600px){.cover-institutions{margin-top:35px;}.cover-story{margin-top:30px;}.cover-cta{padding-bottom:20px;}}
+@media(max-width:760px){.cover-institutions{margin-top:20px;gap:12px;padding:0;}.cover-institutions .fudan-official-mark{width:122px;}.cover-institutions .shmc-official-mark{width:180px;}.institution-divider{height:29px;}.cover-story{margin-top:23px;}.cover-cta{padding-bottom:19px;}.cover-disclaimer{padding:0 3px 18px;}.cover-disclaimer p{font-size:10px;line-height:1.9;letter-spacing:0;}.cover-colophon{padding:0 1px 26px;gap:12px;}}
+@media(max-width:360px){.cover-institutions{gap:9px;}.cover-institutions .fudan-official-mark{width:104px;}.cover-institutions .shmc-official-mark{width:146px;}}
+
+/* Desktop uses a 2560 × 1260 presentation frame rather than a tall document page. */
+@media(min-width:761px){
+ .cover-page{min-height:100svh;display:grid;place-items:center;}
+ .cover-stage{width:min(100vw,203.174603svh);aspect-ratio:2560/1260;min-height:0;height:auto;padding:0;container-type:inline-size;}
+ .cover-stage:before{inset:1.6cqw;}
+ .cover-masthead{position:absolute;top:3.3%;left:4%;right:4%;width:auto;padding:0;font-size:clamp(9px,.7cqw,12px);}
+ .cover-brand{font-size:clamp(12px,1cqw,17px);gap:.7cqw;}
+ .cover-brand svg{width:1.6cqw;height:2cqw;}
+ .cover-institutions{position:absolute;top:7%;left:50%;transform:translateX(-50%);margin:0;padding:0;gap:1cqw;}
+ .cover-institutions .fudan-official-mark{width:8.2cqw;}
+ .cover-institutions .shmc-official-mark{width:11.8cqw;}
+ .institution-divider{height:2.2cqw;}
+ .cover-story{position:absolute;top:17%;left:50%;transform:translateX(-50%);width:60%;max-width:none;margin:0;}
+ .cover-pretitle{font-size:clamp(9px,.7cqw,12px);letter-spacing:.25cqw;gap:1cqw;}
+ .cover-pretitle span{width:2.3cqw;}
+ .cover-stage h1{font-size:3.6cqw;line-height:1.28;margin:.8cqw 0 0;}
+ .cover-subtitle{font-size:1.3cqw;letter-spacing:.33cqw;margin:.55cqw 0 0;}
+ .cover-flourish{width:9cqw;margin:.7cqw auto .8cqw;}
+ .cover-flourish:before,.cover-flourish:after{width:2.8cqw;}
+ .cover-flourish svg{width:1.8cqw;height:2.1cqw;margin:0 .8cqw;}
+ .cover-reading{gap:3.2cqw;padding:0 1.5cqw;}
+ .cover-reading>div+div:before{left:-1.6cqw;}
+ .cover-reading h2{font-size:clamp(12px,1.05cqw,17px);margin-bottom:.55cqw;letter-spacing:.13cqw;}
+ .cover-reading p{font-size:clamp(11px,.95cqw,15px);line-height:2;}
+ .cover-references{font-size:clamp(8px,.65cqw,11px);margin-top:1.1cqw;gap:.8cqw;}
+ .cover-cta{position:absolute;top:75%;left:50%;transform:translateX(-50%);margin:0;padding:0;}
+ .cover-start{width:14.2cqw;min-width:0;height:3.8cqw;min-height:0;padding:.8cqw 1.7cqw;font-size:clamp(13px,1.15cqw,19px);gap:2cqw;}
+ .cover-start span{font-size:1.45cqw;}
+ .cover-cta p{font-size:clamp(8px,.7cqw,11px);margin-top:.8cqw;letter-spacing:.13cqw;}
+ .cover-disclaimer{position:absolute;bottom:5.5%;left:50%;transform:translateX(-50%);width:68%;max-width:none;padding:0;}
+ .cover-disclaimer p{font-size:clamp(8.5px,.72cqw,11px);line-height:1.75;}
+ .cover-colophon{position:absolute;bottom:2.2%;left:4%;right:4%;width:auto;padding:0;font-size:clamp(8px,.63cqw,10px);}
+}
+@media(max-width:760px){.cover-institutions{gap:10px;margin-top:16px;}.cover-institutions .fudan-official-mark{width:95px;}.cover-institutions .shmc-official-mark{width:140px;}.institution-divider{height:24px;}}
