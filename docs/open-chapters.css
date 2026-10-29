@@ -3,3 +3,10 @@
 .course-figure img{display:block;max-width:100%;max-height:26vh;object-fit:contain;margin:.5rem auto;background:white}
 .course-figure p{font-size:.8rem;line-height:1.4;color:#526253;margin:.25rem 0}
 .vn-direction{max-height:65vh;overflow-y:auto}
+
+/* Submitted choices keep their result when learners revisit the question. */
+.vn-choice.answer-incorrect,.vn-choice.answer-incorrect:hover:enabled{border:3px solid #b4423d;background:#fff2ed;box-shadow:0 0 0 2px #b4423d22;color:#6b302b;opacity:1}
+.vn-choice.answer-correct,.vn-choice.answer-correct:hover:enabled{border:3px solid #318157;background:#edf8ed;box-shadow:0 0 0 2px #31815722;color:#285b3b;opacity:1}
+.vn-choice .choice-result{font:600 12px/1.4 'Microsoft YaHei',sans-serif;white-space:nowrap;margin-left:auto}
+.vn-choice.answer-incorrect .choice-result{color:#a12d2a}.vn-choice.answer-correct .choice-result{color:#267744}
+.vn-equipment .vn-choice .choice-result{margin:8px 0 0}
