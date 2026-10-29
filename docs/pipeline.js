@@ -19,7 +19,7 @@
     const m = r.modules.process;
     m.answers = g.groups.map((x, i) => x.complete || x.submissions.length ? {points: p.groups[i].points, firstCorrect: x.complete && x.firstCorrect === true, firstValue: x.submissions[0]?.value, lastValue: x.submissions.at(-1)?.value, corrected: x.complete, submissions: structuredClone(x.submissions), pipeline: true} : null);
     m.cursor = Math.max(0, g.groups.findIndex(x => !x.complete)); m.finished = g.finished;
-    if (COURSE_SECTIONS.every(s => r.modules[s.id]?.finished)) r.finished = g.finished;
+    if (courseAllFinished(r)) r.finished = g.finished;
     save();
   }
   function freshUi() {ui.node = 'arom'; ui.token = null; ui.choice = {}; ui.modal = null; ui.message = ''; ui.scroll = {x: 0, y: 0};}

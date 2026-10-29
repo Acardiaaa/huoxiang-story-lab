@@ -14,7 +14,7 @@
     q('SP-07','回看成分证据','文献[2]鉴定10个化合物，其中8个进行了单体活性筛选。结合原图，哪些表述适合补充部位档案？',['鉴定出的10个化合物均已证明有效','和厚朴酚活性结果可补充解释物质基础','单体有作用说明其余成分均可删除'],1,['鉴定和完成活性筛选不是同一件事，实际筛选范围需按原文核对。','和厚朴酚的单体结果可作为成分线索；两项研究样品和数据仍应分别记录。','单体结果不能排除其他成分的作用或相互影响。'],fig(4,'文献[2]图2：单体抑菌实验；筛选范围以原文为准。')),
     q('SP-08','交接有效部位','完成记录时，应该交付什么成果？',['相关色谱峰清单','和厚朴酚纯品','石油醚萃取部位及证据档案'],2,['相关峰可入档，但不能代替实际部位样品。','单体线索不能替代需要交接的混合部位。','交付石油醚萃取部位，记录分离来源、体外抑菌证据与水层结果。'])
   ];
-  courseSection = id => id==='spectrum' ? spectrum : originalSection(id);
+  courseSection = id => originalSection(id);
   courseUnlocked = () => true;
   const labels={W:'藿香正气水',O:'藿香正气口服液',D:'藿香正气滴丸',C:'藿香正气软胶囊'};
   const directions={A:'胃肠动力调节',B:'肠道屏障保护',C:'抗菌活性评价',D:'免疫与代谢调节',E:'热应激相关损伤防护',F:'肠道炎症调节',G:'肠道菌群调节'};
@@ -32,12 +32,19 @@
   courseInitModule = function(id,r) {
     if(r.modules[id]) return r.modules[id];
     if(!['spectrum','quality','mechanism','indication','safety'].includes(id)) return originalInit(id,r);
-    const context=r.chapterContexts?.[id];
+    r.chapterContexts??={};
+    if(id==='mechanism'&&!r.chapterContexts[id]&&r.modules.pharm?.finished&&r.chapterContexts.pharm)r.chapterContexts[id]=r.chapterContexts.pharm;
+    if(['quality','indication','safety'].includes(id)&&!r.chapterContexts[id]&&r.modules.process?.finished&&r.route)r.chapterContexts[id]=r.route;
+    const context=r.chapterContexts[id];
     if(id!=='spectrum'&&!context)return null;
     const bank=structuredClone(id==='spectrum'?spectrumBank:bankFor(id,context));
     if(!bank.length)return null;
-    if(id!=='spectrum')bank.forEach((x,i)=>{if(i>0)x.lead='下一份研究记录已送到工作台。';});
-    return r.modules[id]={id,bankVersion:'20261029-open-chapters-v1',context:context||null,cursor:0,bank,answers:[],orders:bank.map(x=>shuffledIndices(x.options.length)),beats:{},checks:{},started:new Date().toISOString(),finished:null};
+    if(id==='spectrum'&&r.scoreScheme!=='legacy')bank.forEach((x,i)=>{x.points=[2,2,2,2,2,3,2,3][i];});
+    const words={quality:'把制剂和批记录放到检验台。查阅对应的药典专论，确定检验方法和本批结果。',mechanism:'回到你选的研究方向，查阅文献，找出药效涉及的作用环节和通路。',indication:'把药典主治、研究对象和制剂资料放在一起，为这份研究确定适用范围。',safety:'我们收到一份用药后的追访记录。先核对药品和时间线，再判断报告和后续调查。'};
+    const spectrumTalk=['这里有藿香正气水的抑菌研究资料。先看谱图，再比较分离得到的部位。','看看这组图谱，确认样品的来源。','按批次整理峰面积和抑菌记录，完成配对。','找到了成分线索，接下来安排部位研究。','接下来查阅另一项分离研究，样品是自制藿香正气水。','把各部位送到药效台，比较它们的抑菌作用。','部位的活性结果已经记录，再看看鉴定了哪些成分。','把部位和证据带回任务桌，完成交接。'];
+    if(id==='spectrum')bank.forEach((x,i)=>{x.talk=spectrumTalk[i];});else bank[0].talk=words[id];
+    const beats={};bank.forEach((x,i)=>{beats[i]=id==='spectrum'||i===0?1:2;});
+    return r.modules[id]={id,bankVersion:'20261029-open-chapters-v1',context:context||null,cursor:0,bank,answers:[],orders:bank.map(x=>shuffledIndices(x.options.length)),beats,checks:{},started:new Date().toISOString(),finished:null};
   };
   courseOpen = function(id) {
     if(!courseSection(id))return;
@@ -55,12 +62,12 @@
     const r=courseRun(),m=r?.modules[courseModule];
     if(r&&!m&&['quality','mechanism','indication','safety'].includes(courseModule))return contextPage(r);
     let html=originalQuestion();
-    if(courseModule==='spectrum')html=html.replace(' · 0 分',' · 非计分练习');
+    if(courseModule==='spectrum'&&r?.scoreScheme==='legacy')html=html.replace(' · 0 分',' · 非计分练习');
     return html;
   };
   courseEnd = function(r,m) {
     if(m.id!=='spectrum')return originalEnd(r,m);
-    return courseFrame({title:'有效部位交接',scene:'analysis',speech:'“部位已经找到。记得把研究样品、效应范围和不同研究的证据分别留在档案里。”',content:`<article class="vn-letter vn-ending"><small>CHAPTER COMPLETE</small><h1>有效部位交接</h1><p>藿香正气水石油醚萃取部位</p><p>文献中的抗金黄色葡萄球菌体外活性部位之一。水层亦有活性；不同研究的样品与数据应分别归档。</p><p>本章为非计分练习，不影响课程100分。</p><div class="vn-end-buttons"><button data-action="course-replay">回看本章 →</button><button data-action="home">回到研习目录 →</button></div></article>`,next:'<button data-action="home">回到目录 ▷</button>'});
+    return courseFrame({title:'有效部位交接',scene:'analysis',speech:'“部位已经找到。记得把研究样品、效应范围和不同研究的证据分别留在档案里。”',content:`<article class="vn-letter vn-ending"><small>CHAPTER COMPLETE</small><h1>有效部位交接</h1><p>藿香正气水石油醚萃取部位</p><p>文献中的抗金黄色葡萄球菌体外活性部位之一。水层亦有活性；不同研究的样品与数据应分别归档。</p><p>${r.scoreScheme==='legacy'?'本批次为非计分练习。':'本章得分：'+courseModuleScore(m)+' / 18。'}</p><div class="vn-end-buttons"><button data-action="course-replay">回看本章 →</button><button data-action="course-open" data-module="process">进入提取工艺 →</button><button data-action="home">回到研习目录 →</button></div></article>`,next:'<button data-action="home">回到目录 ▷</button>'});
   };
   pharmAction = function(act,b) {
     if(act==='chapter-context') {

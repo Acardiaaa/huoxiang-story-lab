@@ -1,7 +1,8 @@
 'use strict';
 const COURSE_VERSION='20261026-judgment-v3';
 const COURSE_SECTIONS=[
- {id:'pharm',chapter:1,name:'药效学评价（动物评价）',short:'药效学',max:30,art:'animal',intro:'先把功效解释写成可验证的问题。你选定的方向，将决定模型、设计和观察。'},
+ {id:'pharm',chapter:1,name:'药效学评价（动物评价）',short:'药效学',max:12,art:'animal',intro:'先把功效解释写成可验证的问题。你选定的方向，将决定模型、设计和观察。'},
+ {id:'spectrum',chapter:2,name:'物质基础研究（谱效关系）',short:'谱效关系',max:18,art:'spectrum',intro:'观察文献图谱与分部位抑菌结果，追踪有效部位。'},
  {id:'process',chapter:3,name:'提取工艺研究',short:'制剂工艺',max:30,art:'process',intro:'药效研究留下的是参考样品的证据。现在用提取与成型操作形成自己的制剂，再为新批次建立证据。'},
  {id:'quality',chapter:4,name:'质量标准建立',short:'质量标准',max:15,art:'quality',intro:'工作间交来的样品，还带着刚刚写下的批号。工艺完成之后，检验才刚开始。'},
  {id:'mechanism',chapter:5,name:'作用机制研究',short:'作用机制',max:10,art:'mechanism',intro:'变化一起出现，并不代表它们已经构成因果。沿最初选定的效应问题，审查机制证据。'},
