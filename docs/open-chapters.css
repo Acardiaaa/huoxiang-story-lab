@@ -1,0 +1,5 @@
+.course-figure{margin:.6rem 0;padding:.55rem .7rem;background:rgba(255,255,250,.65);border:1px solid rgba(80,104,77,.3);border-radius:.5rem}
+.course-figure summary{cursor:pointer;color:#42634d;font-weight:600}
+.course-figure img{display:block;max-width:100%;max-height:26vh;object-fit:contain;margin:.5rem auto;background:white}
+.course-figure p{font-size:.8rem;line-height:1.4;color:#526253;margin:.25rem 0}
+.vn-direction{max-height:65vh;overflow-y:auto}
