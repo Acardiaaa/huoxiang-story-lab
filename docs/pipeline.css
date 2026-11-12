@@ -5,3 +5,5 @@
 @media(prefers-reduced-motion:reduce){.pipe-map .node>rect{transition:none}}
 
 .pipeline-active>.skip:not(:focus-visible){visibility:hidden}.pipeline-active>.skip:focus-visible{visibility:visible;top:10px}
+
+@media(max-width:760px){.pipe-inspector{max-height:none;overflow:visible}.pipe-toolbar button{font-size:12px;min-height:36px;padding:6px 9px}.pipe-picked-bar,.pipe-map-status{font-size:11px}.pipe-app .pipe-token,.pipe-setting{font-size:14px;min-height:44px}.pipe-inspector p,.pipe-receiving>div,.pipe-inventory,.pipe-past{font-size:13px}.pipe-header .pipe-back{max-width:none;white-space:nowrap}}
